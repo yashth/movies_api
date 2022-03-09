@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="movieData"
+            type="com.example.movies_api.domain.model.Movie" />
+
+    </data>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            tools:context=".presentation.movie_search.MovieSearchFragment">
+
+            <SearchView
+                android:id="@+id/search_movie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:iconifiedByDefault="false"
+                android:queryHint="Enter Movie/Show Here"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/movieDetailPoster"
+                android:layout_width="120dp"
+                android:layout_height="177dp"
+                android:src="@drawable/loading"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_movie"
+                app:urlToImage="@{movieData.poster}" />
+
+
+            <TextView
+                android:id="@+id/movieDetailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Movie Title"
+                android:layout_margin="10dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/movieDetailPoster"
+                app:layout_constraintTop_toTopOf="@+id/movieDetailPoster" />
+
+
+            <TextView
+                android:id="@+id/movieDetailGenre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Movie Genre"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/movieDetailTitle"
+                app:layout_constraintTop_toBottomOf="@+id/movieDetailTitle" />
+
+            <RatingBar
+                android:id="@+id/movieDetailRating"
+                style="@android:style/Widget.DeviceDefault.Light.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:numStars="10"
+                android:rating="0"
+                android:stepSize="0.1"
+                app:layout_constraintStart_toEndOf="@+id/movieDetailPoster"
+                app:layout_constraintTop_toBottomOf="@+id/movieDetailGenre"
+                app:setRatingView="@{movieData.imdbRating}" />
+
+            <TextView
+                android:id="@+id/movieDetailRatingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rate"
+                android:textColor="@color/black"
+                android:textSize="9dp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintStart_toEndOf="@+id/movieDetailRating"
+                app:layout_constraintTop_toTopOf="@+id/movieDetailRating" />
+
+
+            <Button
+                android:id="@+id/addToFav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add to Favourites"
+                app:layout_constraintStart_toStartOf="@+id/movieDetailRating"
+                app:layout_constraintTop_toBottomOf="@+id/movieDetailRating" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

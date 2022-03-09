@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Movies_API</string>
+    <string name="genre">Genre: %s</string>
+    <string name="plot">Plot: %s</string>
+    <string name="year">Year: %s</string>
+    <string name="rated">Rated: %s</string>
+    <string name="released">Released: %s</string>
+    <string name="director">Director: %s</string>
+    <string name="writer">Writer: %s</string>
+    <string name="actors">Actors: %s</string>
+    <string name="awards">Awards: %s</string>
+    <string name="language">Languages: %s</string>
+    <string name="country">Country: %s</string>
+    <string name="type">Type: %s</string>
+    <string name="imdbVotes">imdbVotes: %s</string>
+
+
+</resources>
